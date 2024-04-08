@@ -1,0 +1,20 @@
+<link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet"
+/>
+
+<header
+    id="header"
+    class="fixed top-0 bg-white shadow-lg w-full border-b-2 flex flex-col justify-center items-center"
+>
+    <div class="text-4xl font-bold my-5">Great Daily Newspaper</div>
+</header>
+
+<main id="content">
+    <div class="flex p-5 space-x-7">
+        <app-article-list class="flex-none" />
+        <app-article-grid class="flex-grow sticky top-0 h-screen overflow-y-auto" />
+    </div>
+</main>
+
+<router-outlet></router-outlet>

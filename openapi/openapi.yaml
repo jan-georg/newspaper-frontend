@@ -1,0 +1,65 @@
+openapi: 3.0.3
+info:
+  title: Swagger Petstore - OpenAPI 3.0
+  version: 1.0.11
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+tags:
+  - name: article
+    description: All about articles
+paths:
+  /article:
+    get:
+      tags:
+        - article
+      summary: Get a list of all articles
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticleResponse'
+components:
+  schemas:
+    ArticleResponse:
+      type: object
+      properties:
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
+    Article:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        title:
+          type: string
+        author:
+          type: string
+        topic:
+          type: string
+        content:
+          $ref: '#/components/schemas/ContentType'
+    ContentType:
+      oneOf:
+        - $ref: '#/components/schemas/Paragraph'
+        - $ref: '#/components/schemas/Section'
+        - $ref: '#/components/schemas/Box'
+      discriminator:
+        propertyName: '@type'
+    Paragraph:
+      properties:
+        text:
+          type: string
+    Section:
+      properties:
+        text:
+          type: string
+    Box:
+      properties:
+        children:
+          $ref: '#/components/schemas/ContentType'
