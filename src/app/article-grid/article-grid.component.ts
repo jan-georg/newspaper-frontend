@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core"
 import { CommonModule } from "@angular/common";
 import { DataService } from "../services/data.service";
 import { Article } from "../../../build/openapi/models/article";
@@ -13,19 +13,19 @@ import { ArticleBoxComponent } from "../article-box/article-box.component";
     styleUrl: "./article-grid.component.css"
 })
 export class ArticleGridComponent {
-    constructor(private articleService: DataService) {}
+    #dataService = inject(DataService)
 
     public getSelectedArticles(): Article[] {
-        return this.articleService.getSelectedArticles();
+        return this.#dataService.getSelectedArticles();
     }
 
     public removeArticle(article: Article) {
-        this.articleService.removeArticle(article);
+        this.#dataService.removeArticle(article);
     }
 
     public getNumAddButtons(): unknown[] {
         const numMaxAddButtons: number = 4;
-        const numAddButtons: number = numMaxAddButtons - this.articleService.getSelectedArticles().length;
+        const numAddButtons: number = numMaxAddButtons - this.#dataService.getSelectedArticles().length;
 
         if (numAddButtons === 0) {
             return [];

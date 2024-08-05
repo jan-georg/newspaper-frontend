@@ -5,7 +5,7 @@ import { Article } from "../../../build/openapi/models/article"
     providedIn: "root"
 })
 export class DataService {
-    private selectedArticle?: Article = undefined
+    private selectedArticle: Article | null = null
     private selectedArticles: Article[] = []
 
     public selectArticle(article: Article) {
@@ -14,22 +14,22 @@ export class DataService {
         }
     }
 
-    public getSelectedArticle(): Article | undefined {
+    public getSelectedArticle(): Article | null {
         return this.selectedArticle
     }
 
-    public getSelectedArticles() {
+    public getSelectedArticles(): Article[] {
         return this.selectedArticles
     }
 
-    public addSelectedArticle() {
+    public addSelectedArticle(): void {
         if (this.selectedArticle) {
             this.selectedArticles.push(this.selectedArticle)
-            this.selectedArticle = undefined
+            this.selectedArticle = null
         }
     }
 
-    public removeArticle(article: Article) {
+    public removeArticle(article: Article): void {
         this.selectedArticles = this.selectedArticles.filter((a) => a.id !== article.id)
     }
 
