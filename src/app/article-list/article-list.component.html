@@ -1,16 +1,18 @@
-<div
-    *ngFor="let article of getArticles()"
-    class="border-2 rounded-lg p-3 mb-3 shadow"
-    [class.bg-blue-200]="isSelected(article)"
-    [class.border-blue-300]="isSelected(article)"
-    [class.bg-gray-200]="isAlreadyUsed(article)"
-    [class.hover:cursor-pointer]="!isAlreadyUsed(article) && !isSelected(article)"
-    (click)="selectArticle(article)"
->
-    <div class="text font-bold">{{ article.title }}</div>
-    <div class="flex flex-row space-x-10 text-gray-500">
-        <div>{{ article.author }}</div>
-        <div>|</div>
-        <div>{{ article.topic }}</div>
+@for(article of articles(); track $index; let isLast = $last){
+    <div
+        class="border-2 rounded-lg p-3 mb-3 shadow"
+        [class.mb-3]="!isLast"
+        [class.bg-blue-200]="isSelected(article)"
+        [class.border-blue-300]="isSelected(article)"
+        [class.bg-gray-200]="isAlreadyUsed(article)"
+        [class.hover:cursor-pointer]="!isAlreadyUsed(article) && !isSelected(article)"
+        (click)="selectArticle(article)"
+    >
+        <div class="text font-bold">{{ article.title }}</div>
+        <div class="flex flex-row space-x-10 text-gray-500">
+            <div>{{ article.author }}</div>
+            <div>|</div>
+            <div>{{ article.topic }}</div>
+        </div>
     </div>
-</div>
+}

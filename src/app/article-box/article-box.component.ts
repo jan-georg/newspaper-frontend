@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, inject, input } from "@angular/core"
 import { CommonModule } from "@angular/common";
 import { Article } from "../../../build/openapi/models/article";
 import { DataService } from "../services/data.service";
@@ -11,20 +11,10 @@ import { DataService } from "../services/data.service";
     styleUrl: "./article-box.component.css"
 })
 export class ArticleBoxComponent {
-    private _article?: Article = undefined;
+    public article = input.required<Article>()
+    #dataService = inject(DataService)
 
-    constructor(private articleService: DataService) {}
-
-    @Input()
-    set article(article: Article) {
-        this._article = article;
-    }
-
-    get article(): Article {
-        return this._article!;
-    }
-
-    public removeArticle(article: Article) {
-        this.articleService.removeArticle(article);
+    public removeArticle(): void {
+        this.#dataService.removeArticle(this.article());
     }
 }

@@ -14,6 +14,4 @@ import { ArticleListComponent } from "./article-list/article-list.component"
 })
 export class AppComponent {
     title = "bewerbung-fe"
-
-    constructor() {}
 }

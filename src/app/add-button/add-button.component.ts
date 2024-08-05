@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core"
 import { CommonModule } from "@angular/common";
 import { DataService } from "../services/data.service";
 
@@ -10,9 +10,9 @@ import { DataService } from "../services/data.service";
     styleUrl: "./add-button.component.css"
 })
 export class AddButtonComponent {
-    constructor(private dataService: DataService) {}
+    #dataService = inject(DataService)
 
     public addSelectedArticle() {
-        this.dataService.addSelectedArticle();
+        this.#dataService.addSelectedArticle();
     }
 }

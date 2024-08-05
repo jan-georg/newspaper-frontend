@@ -1,16 +1,16 @@
 <div class="flex items-center space-x-5">
     <div class="flex flex-grow">
         <div>
-            <div class="text font-bold">{{article.title}}</div>
+            <div class="text font-bold">{{article().title}}</div>
             <div class="flex flex-row space-x-10 text-gray-500">
-                <div>{{article.author}}</div>
+                <div>{{article().author}}</div>
                 <div>|</div>
-                <div>{{article.topic}}</div>
+                <div>{{article().topic}}</div>
             </div>
         </div>
     </div>
 
-    <div class="hover:cursor-pointer" (click)="removeArticle(article)">
+    <div class="hover:cursor-pointer" (click)="removeArticle()">
         <span class="material-symbols-outlined text-gray-500">delete</span>
     </div>
 </div>
