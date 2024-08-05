@@ -1,4 +1,4 @@
-import { Component, inject, input, Input } from "@angular/core"
+import { Component, inject, input } from "@angular/core"
 import { CommonModule } from "@angular/common";
 import { Article } from "../../../build/openapi/models/article";
 import { DataService } from "../services/data.service";

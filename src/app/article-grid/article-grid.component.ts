@@ -19,10 +19,6 @@ export class ArticleGridComponent {
         return this.#dataService.getSelectedArticles();
     }
 
-    public removeArticle(article: Article) {
-        this.#dataService.removeArticle(article);
-    }
-
     public getNumAddButtons(): unknown[] {
         const numMaxAddButtons: number = 4;
         const numAddButtons: number = numMaxAddButtons - this.#dataService.getSelectedArticles().length;
