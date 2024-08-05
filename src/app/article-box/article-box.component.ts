@@ -14,7 +14,7 @@ export class ArticleBoxComponent {
     public article = input.required<Article>()
     #dataService = inject(DataService)
 
-    public removeArticle() {
+    public removeArticle(): void {
         this.#dataService.removeArticle(this.article());
     }
 }
