@@ -1,14 +1,16 @@
 <div class="h-full flex items-center justify-center">
     <div class="grid grid-cols-2 grid-rows-2 gap-3">
-        <div *ngFor="let article of getSelectedArticles()"
-             class="border-2 rounded-lg p-2 shadow"
-             (click)="removeArticle(article)">
+        @for(article of getSelectedArticles(); track $index){
+            <div class="border-2 rounded-lg p-2 shadow"
+                 (click)="removeArticle(article)">
+                <app-article-box [article]="article"></app-article-box>
+            </div>
 
-            <app-article-box [article]="article"></app-article-box>
-        </div>
-
-        <div *ngFor="let _ of getNumAddButtons()" class="border-2 rounded-lg p-2 shadow">
-            <app-add-button></app-add-button>
-        </div>
+        }
+        @for(_ of getNumAddButtons(); track $index){
+            <div class="border-2 rounded-lg p-2 shadow">
+                <app-add-button></app-add-button>
+            </div>
+        }
     </div>
 </div>

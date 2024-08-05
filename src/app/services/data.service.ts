@@ -8,8 +8,6 @@ export class DataService {
     private selectedArticle?: Article = undefined
     private selectedArticles: Article[] = []
 
-    constructor() {}
-
     public selectArticle(article: Article) {
         if (!this.selectedArticles.find((a) => a.id === article.id)) {
             this.selectedArticle = article

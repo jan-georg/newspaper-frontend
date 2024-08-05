@@ -23,7 +23,7 @@ export class ArticleGridComponent {
         this.articleService.removeArticle(article);
     }
 
-    public getNumAddButtons(): any[] {
+    public getNumAddButtons(): unknown[] {
         const numMaxAddButtons: number = 4;
         const numAddButtons: number = numMaxAddButtons - this.articleService.getSelectedArticles().length;
 

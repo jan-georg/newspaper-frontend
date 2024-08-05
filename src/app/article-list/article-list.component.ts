@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core"
 import { CommonModule } from "@angular/common";
 import { DataService } from "../services/data.service";
 import { Article } from "../../../build/openapi/models/article";
@@ -11,21 +11,21 @@ import { Article } from "../../../build/openapi/models/article";
     styleUrl: "./article-list.component.css"
 })
 export class ArticleListComponent {
-    constructor(private dataService: DataService) {}
+    #dataService = inject(DataService);
 
-    public getArticles() {
-        return this.dataService.getArticles();
+    public getArticles(): Article[] {
+        return this.#dataService.getArticles();
     }
 
-    public selectArticle(article: Article) {
-        this.dataService.selectArticle(article);
+    public selectArticle(article: Article): void {
+        this.#dataService.selectArticle(article);
     }
 
     public isSelected(article: Article): boolean {
-        return article.id === this.dataService.getSelectedArticle()?.id;
+        return article.id === this.#dataService.getSelectedArticle()?.id;
     }
 
     public isAlreadyUsed(article: Article): boolean {
-        return Boolean(this.dataService.getSelectedArticles().find((a) => a.id === article.id));
+        return Boolean(this.#dataService.getSelectedArticles().find((a) => a.id === article.id));
     }
 }
