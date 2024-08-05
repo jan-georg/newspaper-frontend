@@ -1,4 +1,4 @@
-@for(article of getArticles(); track $index; let isLast = $last){
+@for(article of articles(); track $index; let isLast = $last){
     <div
         class="border-2 rounded-lg p-3 mb-3 shadow"
         [class.mb-3]="!isLast"

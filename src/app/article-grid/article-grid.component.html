@@ -1,9 +1,9 @@
 <div class="h-full flex items-center justify-center">
     <div class="grid grid-cols-2 grid-rows-2 gap-3">
-        @for(article of getSelectedArticles(); track $index){
+        @for(article of selectedArticles(); track $index){
             <app-article-box class="border-2 rounded-lg p-2 shadow" [article]="article"></app-article-box>
         }
-        @for(_ of getNumAddButtons(); track $index){
+        @for(_ of numAddButtons(); track $index){
             <app-add-button class="border-2 rounded-lg p-2 shadow"></app-add-button>
         }
     </div>
