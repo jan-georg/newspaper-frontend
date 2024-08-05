@@ -4,16 +4,13 @@
 />
 
 <header
-    id="header"
     class="sticky top-0 bg-white shadow-lg w-full border-b-2 text-center text-4xl font-bold py-5">
     Great Daily Newspaper
 </header>
 
-<main id="content" class="flex">
-        <app-article-list class="p-5"/>
+<main class="flex">
+    <app-article-list class="p-5"/>
     <div class="flex flex-grow justify-center">
         <app-article-grid class="fixed top-1/2 -translate-y-1/2"/>
     </div>
 </main>
-
-<router-outlet></router-outlet>
