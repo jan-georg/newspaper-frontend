@@ -2,8 +2,7 @@
     <div
         class="border-2 rounded-lg p-3 mb-3 shadow"
         [class.mb-3]="!isLast"
-        [class.bg-blue-200]="isSelected(article)"
-        [class.border-blue-300]="isSelected(article)"
+        [class.seleccted]="isSelected(article)"
         [class.bg-gray-200]="isAlreadyUsed(article)"
         [class.hover:cursor-pointer]="!isAlreadyUsed(article) && !isSelected(article)"
         (click)="selectArticle(article)"
